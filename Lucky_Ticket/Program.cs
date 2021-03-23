@@ -23,24 +23,21 @@ namespace Lucky_Ticket
             return input.Length >= 4 && input.Length <= 8;
         }
 
-        public bool IsTicketLucky(List<int> number)
+        public void IsTicketLucky(List<int> number)
         {
             if (number.Take(number.Count / 2).Sum() == number.Skip(number.Count / 2).Take(number.Count / 2).Sum())
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Ticket is lucky");
                 Console.ForegroundColor = ConsoleColor.White;
-                number.Clear();
-                return true;
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ticket is unlucky");
                 Console.ForegroundColor = ConsoleColor.White;
-                number.Clear();
-                return false;
-            }            
+            }
+            number.Clear();
         }
 
         public bool ParseTicketStringToIntList(string input)
